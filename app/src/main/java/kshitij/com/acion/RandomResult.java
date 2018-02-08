@@ -13,8 +13,7 @@ public class RandomResult extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle("Todays' Special");
-        setContentView(R.layout.list_result);
+        setContentView(R.layout.recipe_display);
 
     }
-
 }

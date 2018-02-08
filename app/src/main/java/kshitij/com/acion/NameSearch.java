@@ -1,7 +1,6 @@
 package kshitij.com.acion;
 
 import android.content.Intent;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -31,7 +30,7 @@ public class NameSearch extends AppCompatActivity {
                         Toast.makeText(NameSearch.this, "No search value was entered.", Toast.LENGTH_LONG).show();
                         return ;
                     }
-                    Intent intent = new Intent(NameSearch.this, ResultList.class);
+                    Intent intent = new Intent(NameSearch.this, NameSearchResult.class);
                     Bundle activityBundle = new Bundle();//Bundle used to send info across activities
                     activityBundle.putString("key_dishname", dishname);
                     intent.putExtras(activityBundle);

@@ -1,7 +1,7 @@
 package kshitij.com.acion;
 
 import android.content.Context;
-import android.os.Build;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
@@ -57,7 +57,16 @@ public class IngredientSearch extends AppCompatActivity {
                     return ;
                 }
                 else {
-                    Log.i("check", ""+ingredients);
+                    String[] bundleString = new String[count];;
+                    for (int i = 0; i < count; i++) {
+                        bundleString[i] = ingredients.get(i).toLowerCase().trim();
+                    }
+                    Intent intent = new Intent(IngredientSearch.this, IngredientSearchResult.class);
+                    Bundle bundle = new Bundle();//Bundle used to send info across activities
+                    bundle.putStringArray("list",bundleString);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                    finish();
                 }
             }
         });
@@ -80,7 +89,6 @@ public class IngredientSearch extends AppCompatActivity {
                          ingredients.remove(i);
                  }
                  count--;
-                 Log.i("id","");
              }});
          layout.addView(addView);
     }
