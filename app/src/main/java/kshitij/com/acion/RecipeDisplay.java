@@ -1,10 +1,13 @@
 package kshitij.com.acion;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -51,6 +54,19 @@ public class RecipeDisplay extends AppCompatActivity {
         serves.setText(mCursor.getString(7).toString());
         image.setImageResource(getResources().getIdentifier(""+mCursor.getString(8), "drawable", getPackageName()));
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_display, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = new Intent(RecipeDisplay.this, AboutUs.class);
+        startActivity(intent);
+        return true;
     }
 }
 

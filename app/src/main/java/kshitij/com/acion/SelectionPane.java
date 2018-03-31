@@ -3,6 +3,8 @@ package kshitij.com.acion;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -39,5 +41,18 @@ public class SelectionPane extends AppCompatActivity {
                 startActivity(new Intent(SelectionPane.this, RandomResult.class));
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_display, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = new Intent(SelectionPane.this, AboutUs.class);
+        startActivity(intent);
+        return true;
     }
 }
